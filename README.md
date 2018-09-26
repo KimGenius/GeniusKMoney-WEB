@@ -1,4 +1,5 @@
 # GeniusKMoney
+재미로 만드는 영재영재론 관리툴
 
 ## Project setup
 ```
