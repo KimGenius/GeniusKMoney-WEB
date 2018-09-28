@@ -1,4 +1,4 @@
-# GeniusKMoney
+# GeniusKMoney-WEB
 토이프로젝트 첫번째 - 영재영재론 관리툴 WEB 버전
 
 ## 작업일지
