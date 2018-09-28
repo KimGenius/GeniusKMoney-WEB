@@ -1,6 +1,7 @@
 <template>
     <div class="customers">
         <!--TODO: billboard 차트 들어가야함-->
+        <p>{{test}}</p>
         <v-data-table
                 :headers="headers"
                 :items="datas"
@@ -70,7 +71,8 @@ export default {
     // TODO: 추후 flask 서버 완성되면 request uri 바꿔야됨
     // TODO: async await 알아보기
     axios
-      .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+    // .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+      .get('http://localhost:5000/api/test')
       .then(response => (this.test = response))
   }
 }
