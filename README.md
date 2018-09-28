@@ -14,7 +14,7 @@
 - 고객 리스트 프론트 작업 (차트는 아직 안함)
 - 리퀘스트 테스트
 - 리퀘스트 데이터 바인딩 테스트
-- Flask Hello World와 통신 테스트
+- [Flask](https://github.com/KimGenius/GeniusKMoney-SERVER) Hello World와 통신 테스트
 
 ## Project setup
 ```
