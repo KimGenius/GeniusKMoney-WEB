@@ -20,6 +20,9 @@
 - 고객 리스트 Flask 데이터 연동
 - mounted async 적용해봄
 
+### 2018-10-01
+- naver billboard js 연동
+
 ## Project setup
 ```
 npm install
