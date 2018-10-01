@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
+      <link rel="stylesheet" href="https://naver.github.io/billboard.js/release/latest/dist/theme/insight.min.css">
       <router-link to="/">고객 리스트</router-link> |
       <router-link to="/history">대출/상환 기록</router-link>
     </div>

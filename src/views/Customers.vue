@@ -1,6 +1,5 @@
 <template>
     <div class="customers">
-        <!--TODO: billboard 차트 들어가야함-->
         <div id="TimeseriesChart"></div>
         <v-data-table
                 :headers="headers"
@@ -14,7 +13,7 @@
                 <td class="text-xs-left">{{ data.item.total_payback_money }}</td>
                 <td class="text-xs-left">{{ data.item.trust_percent }}</td>
                 <!--TODO: date 보기 쉽게 수정-->
-                <td class="text-xs-left">{{ dㅅata.item.date_updated }}</td>
+                <td class="text-xs-left">{{ data.item.date_updated }}</td>
                 <td class="text-xs-left">{{ data.item.date_created }}</td>
             </template>
         </v-data-table>
