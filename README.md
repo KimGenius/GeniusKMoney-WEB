@@ -16,6 +16,10 @@
 - 리퀘스트 데이터 바인딩 테스트
 - [Flask](https://github.com/KimGenius/GeniusKMoney-SERVER) Hello World와 통신 테스트
 
+### 2018-09-29
+- 고객 리스트 Flask 데이터 연동
+- mounted async 적용해봄
+
 ## Project setup
 ```
 npm install
