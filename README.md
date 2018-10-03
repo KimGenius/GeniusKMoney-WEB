@@ -23,6 +23,9 @@
 ### 2018-10-01
 - naver billboard js 연동
 
+### 2018-10-03
+- History vue 기초작업
+
 ## Project setup
 ```
 npm install
