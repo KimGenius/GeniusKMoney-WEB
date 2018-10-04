@@ -26,6 +26,9 @@
 ### 2018-10-03
 - History vue 기초작업
 
+### 2018-10-04
+- 대출/상환 기록 Chart 연동
+
 ## Project setup
 ```
 npm install
