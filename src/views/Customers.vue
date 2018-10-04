@@ -50,6 +50,7 @@ export default {
   },
   async mounted () {
     const { data: datas } = await axios.get('http://localhost:5000/api/customers')
+    // TODO: 차트는 따로 컴포넌트화 해야될듯
     const { data: histories } = await axios.get('http://localhost:5000/api/histories')
     this.datas = datas
 
@@ -65,7 +66,6 @@ export default {
       columnsMoney.push(totalMoney)
       columnsPayback.push(totalPayback)
     }
-    console.log(columnsMoney, columnsPayback)
     const chart = bb.generate({
       data: {
         x: 'x',
