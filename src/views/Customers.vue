@@ -29,6 +29,7 @@
 <script>
 import axios from 'axios'
 import { bb } from 'billboard.js'
+
 export default {
   data () {
     return {
@@ -47,14 +48,26 @@ export default {
       datas: []
     }
   },
-  async mounted () {
+  async beforeCreate () {
+    const { datas } = await axios.get('http://localhost:5000/api/customers')
+    this.datas = datas
+    console.log(datas)
+    console.log(this.datas)
+    const columnsHeader = ['x']
+    const columnsMoney = ['빌린 금액']
+    const columnsPayback = ['갚은 금액']
+    for (const data of datas) {
+      columnsHeader.push(data.date_updated.toString())
+      columnsMoney.push(data.total_money)
+      columnsPayback.push(data.total_payback_money)
+    }
+    console.log(columnsHeader, columnsMoney, columnsPayback)
     const chart = bb.generate({
       data: {
         x: 'x',
         columns: [
-          ['x', '2013-01-01', '2013-01-02', '2013-01-03', '2013-01-04', '2013-01-05', '2013-01-06'],
-          ['data1', 30, 200, 100, 400, 150, 250],
-          ['data2', 130, 340, 200, 500, 250, 350]
+          columnsHeader,
+          columnsMoney
         ]
       },
       axis: {
@@ -68,15 +81,13 @@ export default {
       bindto: '#TimeseriesChart'
     })
 
-    setTimeout(function() {
+    setTimeout(function () {
       chart.load({
         columns: [
-          ['data3', 400, 500, 450, 700, 600, 500]
+          columnsPayback
         ]
       })
     }, 1000)
-    const { data } = await axios.get('http://localhost:5000/api/customers')
-    this.datas = data
   }
 }
 
