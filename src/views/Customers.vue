@@ -48,20 +48,24 @@ export default {
       datas: []
     }
   },
-  async beforeCreate () {
-    const { datas } = await axios.get('http://localhost:5000/api/customers')
+  async mounted () {
+    const { data: datas } = await axios.get('http://localhost:5000/api/customers')
+    const { data: histories } = await axios.get('http://localhost:5000/api/histories')
     this.datas = datas
-    console.log(datas)
-    console.log(this.datas)
+
     const columnsHeader = ['x']
     const columnsMoney = ['빌린 금액']
     const columnsPayback = ['갚은 금액']
-    for (const data of datas) {
-      columnsHeader.push(data.date_updated.toString())
-      columnsMoney.push(data.total_money)
-      columnsPayback.push(data.total_payback_money)
+    let totalMoney = 0
+    let totalPayback = 0
+    for (const data of histories) {
+      columnsHeader.push(new Date(data.date_created).toISOString().substr(0, 10))
+      if (data.type === 1) totalPayback += data.money
+      else totalMoney += data.money
+      columnsMoney.push(totalMoney)
+      columnsPayback.push(totalPayback)
     }
-    console.log(columnsHeader, columnsMoney, columnsPayback)
+    console.log(columnsMoney, columnsPayback)
     const chart = bb.generate({
       data: {
         x: 'x',
