@@ -72,7 +72,11 @@ export default {
         columns: [
           columnsHeader,
           columnsMoney
-        ]
+        ],
+        colors: {
+          '빌린 금액': '#fa7171',
+          '갚은 금액': '#00c73c'
+        }
       },
       axis: {
         x: {
