@@ -34,6 +34,8 @@
 - date util
 - histories 실제 데이터 연동
 - chart 바뀐 query에 대한 reverse 적용
+- HistoryChart y format 수정
+- 금액 전부 money format 적용
 
 ## Project setup
 ```
