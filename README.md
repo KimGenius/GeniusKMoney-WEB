@@ -29,6 +29,12 @@
 ### 2018-10-04
 - 대출/상환 기록 Chart 연동
 
+### 2018-10-05
+- HistoryChart Component 분리
+- date util
+- histories 실제 데이터 연동
+- chart 바뀐 query에 대한 reverse 적용
+
 ## Project setup
 ```
 npm install
