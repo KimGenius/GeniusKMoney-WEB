@@ -11,9 +11,8 @@
                 <td class="text-xs-left">{{ data.item.total_money }}</td>
                 <td class="text-xs-left">{{ data.item.total_payback_money }}</td>
                 <td class="text-xs-left">{{ data.item.trust_percent }}</td>
-                <!--TODO: date 보기 쉽게 수정-->
-                <td class="text-xs-left">{{ data.item.date_updated }}</td>
-                <td class="text-xs-left">{{ data.item.date_created }}</td>
+                <td class="text-xs-left">{{ new Date(data.item.date_updated).toISOString() }}</td>
+                <td class="text-xs-left">{{ new Date(data.item.date_created).toISOString() }}</td>
             </template>
         </v-data-table>
     </div>
