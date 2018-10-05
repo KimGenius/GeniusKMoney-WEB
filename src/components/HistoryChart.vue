@@ -10,7 +10,7 @@ export default {
   name: 'HistoryChart',
   async mounted () {
     const { data: histories } = await axios.get('http://localhost:5000/api/histories')
-
+    histories.reverse()
     const columnsHeader = ['x']
     const columnsMoney = ['빌린 금액']
     const columnsPayback = ['갚은 금액']
