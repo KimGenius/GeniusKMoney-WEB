@@ -51,6 +51,8 @@ export default {
     datas.map(data => {
       data.date_updated = getISODate(data.date_updated)
       data.date_created = getISODate(data.date_created)
+      data.total_money = data.total_money.toLocaleString() + '원'
+      data.total_payback_money = data.total_payback_money.toLocaleString() + '원'
     })
     this.datas = datas
   }

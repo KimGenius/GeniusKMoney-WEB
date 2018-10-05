@@ -48,6 +48,7 @@ export default {
       history.date_created = getISODate(history.date_created)
       history.type = history.type ? '상환' : '대출'
       if (!history.memo) history.memo = 'X'
+      history.money = history.money.toLocaleString() + '원'
     })
     this.datas = histories
   }
