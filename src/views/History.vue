@@ -12,7 +12,7 @@
                 <td class="text-xs-left">{{ data.item.type }}</td>
                 <td class="text-xs-left">{{ data.item.money }}</td>
                 <td class="text-xs-left">{{ data.item.memo }}</td>
-                <td class="text-xs-left">{{ data.item.dateCreated }}</td>
+                <td class="text-xs-left">{{ data.item.date_created }}</td>
             </template>
         </v-data-table>
     </div>
@@ -25,6 +25,9 @@
 </style>
 
 <script>
+import axios from 'axios'
+import { getISODate } from '../utils/date'
+
 export default {
   data () {
     return {
@@ -36,15 +39,17 @@ export default {
         { text: '메모', value: 'memo' },
         { text: '생성일', value: 'dateCreated' }
       ],
-      datas: [{
-        idx: 1,
-        name: 'Test',
-        type: '1', // 1 갚을때, 2 빌릴때
-        money: 1234124,
-        memo: '너는 누구냐',
-        dateCreated: '오늘'
-      }]
+      datas: []
     }
+  },
+  async mounted () {
+    const { data: histories } = await axios.get('http://localhost:5000/api/histories')
+    histories.map(history => {
+      history.date_created = getISODate(history.date_created)
+      history.type = history.type ? '상환' : '대출'
+      if (!history.memo) history.memo = 'X'
+    })
+    this.datas = histories
   }
 }
 </script>
