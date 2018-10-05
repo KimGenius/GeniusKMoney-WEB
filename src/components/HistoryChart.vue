@@ -5,6 +5,7 @@
 <script>
 import axios from 'axios'
 import { bb } from 'billboard.js'
+import { getISODate } from '../utils/date'
 export default {
   name: 'HistoryChart',
   async mounted () {
@@ -16,7 +17,7 @@ export default {
     let totalMoney = 0
     let totalPayback = 0
     for (const data of histories) {
-      columnsHeader.push(new Date(data.date_created).toISOString().substr(0, 10))
+      columnsHeader.push(getISODate(data.date_created).substr(0, 10))
       if (data.type === 1) totalPayback += data.money
       else totalMoney += data.money
       columnsMoney.push(totalMoney)
