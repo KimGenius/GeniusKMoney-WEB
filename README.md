@@ -36,6 +36,8 @@
 - chart 바뀐 query에 대한 reverse 적용
 - HistoryChart y format 수정
 - 금액 전부 money format 적용
+- table footer 추가
+- style 수정
 
 ## Project setup
 ```
