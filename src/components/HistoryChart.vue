@@ -41,6 +41,13 @@ export default {
           tick: {
             format: '%Y-%m-%d'
           }
+        },
+        y: {
+          tick: {
+            format: (money) => {
+              return money.toLocaleString() + '원'
+            }
+          }
         }
       },
       bindto: '#TimeseriesChart'
