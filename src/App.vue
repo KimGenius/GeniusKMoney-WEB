@@ -18,8 +18,9 @@
   text-align: center;
   color: #2c3e50;
 }
+
 #nav {
-  padding: 30px;
+  padding: 5vh 0 0;
 }
 
 #nav a {
@@ -30,6 +31,7 @@
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
 </style>
 <script>
 import HistoryChart from './components/HistoryChart'
