@@ -4,6 +4,7 @@
       <link rel="stylesheet" href="https://naver.github.io/billboard.js/release/latest/dist/theme/insight.min.css">
       <router-link to="/">고객 리스트</router-link> |
       <router-link to="/history">대출/상환 기록</router-link>
+      <HistoryChart></HistoryChart>
     </div>
     <router-view/>
   </div>
@@ -30,3 +31,9 @@
   color: #42b983;
 }
 </style>
+<script>
+import HistoryChart from './components/HistoryChart'
+export default {
+  components: { HistoryChart }
+}
+</script>

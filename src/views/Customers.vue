@@ -1,6 +1,5 @@
 <template>
     <div class="customers">
-        <div id="TimeseriesChart"></div>
         <v-data-table
                 :headers="headers"
                 :items="datas"
@@ -28,7 +27,6 @@
 
 <script>
 import axios from 'axios'
-import { bb } from 'billboard.js'
 
 export default {
   data () {
@@ -50,52 +48,7 @@ export default {
   },
   async mounted () {
     const { data: datas } = await axios.get('http://localhost:5000/api/customers')
-    // TODO: 차트는 따로 컴포넌트화 해야될듯
-    const { data: histories } = await axios.get('http://localhost:5000/api/histories')
     this.datas = datas
-
-    const columnsHeader = ['x']
-    const columnsMoney = ['빌린 금액']
-    const columnsPayback = ['갚은 금액']
-    let totalMoney = 0
-    let totalPayback = 0
-    for (const data of histories) {
-      columnsHeader.push(new Date(data.date_created).toISOString().substr(0, 10))
-      if (data.type === 1) totalPayback += data.money
-      else totalMoney += data.money
-      columnsMoney.push(totalMoney)
-      columnsPayback.push(totalPayback)
-    }
-    const chart = bb.generate({
-      data: {
-        x: 'x',
-        columns: [
-          columnsHeader,
-          columnsMoney
-        ],
-        colors: {
-          '빌린 금액': '#fa7171',
-          '갚은 금액': '#00c73c'
-        }
-      },
-      axis: {
-        x: {
-          type: 'timeseries',
-          tick: {
-            format: '%Y-%m-%d'
-          }
-        }
-      },
-      bindto: '#TimeseriesChart'
-    })
-
-    setTimeout(function () {
-      chart.load({
-        columns: [
-          columnsPayback
-        ]
-      })
-    }, 1000)
   }
 }
 
