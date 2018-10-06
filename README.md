@@ -39,6 +39,9 @@
 - table footer 추가
 - style 수정
 
+### 2018-10-06
+- Dialog 추가중
+
 ## Project setup
 ```
 npm install
