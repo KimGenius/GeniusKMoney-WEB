@@ -1,5 +1,13 @@
 <template>
     <div class="customers">
+        <md-dialog-prompt
+                :md-active.sync="active"
+                v-model="value"
+                md-title="What's your name?"
+                md-input-maxlength="30"
+                md-input-placeholder="Type your name..."
+                md-confirm-text="Done" />
+        <md-button class="add-btn md-raised md-primary" @click="active = true">고객 추가</md-button>
         <v-data-table
                 :headers="headers"
                 :items="datas"
@@ -29,6 +37,10 @@
     .customers {
         width: 100vw;
         padding: 5vh 3vw;
+        text-align: right;
+    }
+    .add-btn {
+        margin-right: 0;
     }
 </style>
 
@@ -54,7 +66,9 @@ export default {
       datas: [],
       totalMoney: 0,
       totalPaybackMoney: 0,
-      totalWaitMoney: 0
+      totalWaitMoney: 0,
+      active: false,
+      value: null
     }
   },
   async mounted () {

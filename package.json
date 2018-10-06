@@ -14,6 +14,7 @@
     "billboard.js": "^1.6.2",
     "material-design-icons-iconfont": "^3.0.3",
     "vue": "^2.5.17",
+    "vue-material": "^1.0.0-beta-10.2",
     "vue-router": "^3.0.1",
     "vuetify": "^1.2.5"
   },
@@ -26,7 +27,7 @@
     "@vue/eslint-config-standard": "^3.0.4",
     "@vue/test-utils": "^1.0.0-beta.20",
     "chai": "^4.1.2",
-    "vue-cli-plugin-vuetify": "^0.2.0",
+    "vue-cli-plugin-vuetify": "^0.2.1",
     "vue-template-compiler": "^2.5.17"
   },
   "eslintConfig": {

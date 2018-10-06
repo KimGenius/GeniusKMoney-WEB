@@ -35,6 +35,16 @@
 </style>
 <script>
 import HistoryChart from './components/HistoryChart'
+import Vue from 'vue'
+import {
+  MdButton,
+  MdDialogPrompt
+} from 'vue-material/dist/components'
+import 'vue-material/dist/vue-material.min.css'
+import 'vue-material/dist/theme/default.css'
+
+Vue.use(MdButton)
+Vue.use(MdDialogPrompt)
 export default {
   components: { HistoryChart }
 }
