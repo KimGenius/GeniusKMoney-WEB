@@ -42,6 +42,10 @@
 ### 2018-10-06
 - Dialog 추가중
 
+### 2018-10-07
+- Prompt 오류 해결
+- Prompt Confirm & Cancel 이벤트 연동
+
 ## Project setup
 ```
 npm install
