@@ -7,7 +7,9 @@
                 md-input-maxlength="30"
                 md-input-placeholder="이름을 입력해주세요..."
                 md-confirm-text="확인"
-                md-cancel-text="취소"/>
+                md-cancel-text="취소"
+                @md-confirm="onConfirmDialog"
+                @md-cancel="onCancelDialog"/>
         <md-button class="add-btn md-raised md-primary" @click="active = true">고객 추가</md-button>
         <v-data-table
                 :headers="headers"
@@ -71,6 +73,17 @@ export default {
       totalWaitMoney: 0,
       active: false,
       value: null
+    }
+  },
+  methods: {
+    async onConfirmDialog (data) {
+      console.log('hi' + data)
+    },
+    onCancelDialog () {
+      // TODO : 처음에만 바뀌는거 해결해야됨
+      console.log(this.value)
+      this.value = '?'
+      console.log(this.value)
     }
   },
   async mounted () {
