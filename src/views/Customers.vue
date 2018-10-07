@@ -3,10 +3,11 @@
         <md-dialog-prompt
                 :md-active.sync="active"
                 v-model="value"
-                md-title="What's your name?"
+                md-title="고객의 이름이 무엇인가요?"
                 md-input-maxlength="30"
-                md-input-placeholder="Type your name..."
-                md-confirm-text="Done" />
+                md-input-placeholder="이름을 입력해주세요..."
+                md-confirm-text="확인"
+                md-cancel-text="취소"/>
         <md-button class="add-btn md-raised md-primary" @click="active = true">고객 추가</md-button>
         <v-data-table
                 :headers="headers"
@@ -39,6 +40,7 @@
         padding: 5vh 3vw;
         text-align: right;
     }
+
     .add-btn {
         margin-right: 0;
     }
