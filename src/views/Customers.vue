@@ -2,7 +2,7 @@
     <div class="customers">
         <md-dialog-prompt
                 :md-active.sync="active"
-                v-model="value"
+                v-model="inputName"
                 md-title="고객의 이름이 무엇인가요?"
                 md-input-maxlength="30"
                 md-input-placeholder="이름을 입력해주세요..."
@@ -10,6 +10,10 @@
                 md-cancel-text="취소"
                 @md-confirm="onConfirmDialog"
                 @md-cancel="onCancelDialog"/>
+        <md-dialog-alert
+                :md-active.sync="isAlert"
+                :md-content="alertContent"
+                md-confirm-text="확인"/>
         <md-button class="add-btn md-raised md-primary" @click="active = true">고객 추가</md-button>
         <v-data-table
                 :headers="headers"
@@ -72,18 +76,26 @@ export default {
       totalPaybackMoney: 0,
       totalWaitMoney: 0,
       active: false,
-      value: null
+      inputName: null,
+      isAlert: false,
+      alertContent: ''
     }
   },
   methods: {
     async onConfirmDialog (data) {
-      console.log('hi' + data)
+      // TODO : 한글을 입력하고 바로 엔터치면 뒤에 한글자 짤리는거 문제 있음
+      const { status } = await axios.post('http://localhost:5000/api/customers', {
+        name: data
+      })
+      this.isAlert = true
+      if (status === 200) this.alertContent = '성공적으로 고객을 등록하였습니다!'
+      else this.alertContent = '고객을 등록에 실패했습니다 :('
     },
     onCancelDialog () {
       // TODO : 처음에만 바뀌는거 해결해야됨
-      console.log(this.value)
-      this.value = '?'
-      console.log(this.value)
+      console.log(this.inputName)
+      this.inputName = '?'
+      console.log(this.inputName)
     }
   },
   async mounted () {
