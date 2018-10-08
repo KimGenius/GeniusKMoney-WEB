@@ -59,7 +59,7 @@ export default {
           columnsPayback
         ]
       })
-    }, 1000)
+    }, 300)
   }
 }
 </script>
