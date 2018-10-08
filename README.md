@@ -46,6 +46,10 @@
 - Prompt 오류 해결
 - Prompt Confirm & Cancel 이벤트 연동
 
+### 2018-10-08
+- Chart setTimeout Time 조절
+- Add Customer 연동 및 결과창 작업
+
 ## Project setup
 ```
 npm install
